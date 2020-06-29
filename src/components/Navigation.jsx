@@ -14,7 +14,7 @@ const Navigation = () => {
           <a>News</a>
         </div>
         <div className={s.item}>
-          <a>Music</a>
+          <a>MusiC</a>
         </div>
         <div className={s.item}>
           <a>Settings</a>

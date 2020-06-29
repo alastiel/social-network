@@ -15,7 +15,7 @@ const ProfileComponent = () => {
                 post
             </div>
             <div className={s.item}>
-                post text
+                post text.
             </div>
         </div>
     );
