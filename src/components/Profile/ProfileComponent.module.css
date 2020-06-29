@@ -3,11 +3,7 @@
     background-color: rgb(199, 219, 223);
   }
   
-  .content img {
+  .content .img {
     width: 1000px;
-  }
-  
-  .item {
-    color: red;
   }
   

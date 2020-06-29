@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
-import Navigation from './components/Navigation';
-import ProfileComponent from './components/ProfileComponent';
+import Header from './components/Header/Header'
+import Navigation from './components/Navigation_bar/Navigation';
+import ProfileComponent from './components/Profile/ProfileComponent';
 
 
 

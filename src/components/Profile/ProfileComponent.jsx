@@ -1,21 +1,19 @@
 import React from 'react';
 import pageHeader from '../image/page-header.png';
+import MyPosts from './My_posts/MyPosts';
 import s from './ProfileComponent.module.css';
 
 const ProfileComponent = () => {
     return (
         <div className={s.content}>
             <div>
-                <img src={pageHeader} />
+                <img className={s.img} src={pageHeader} />
             </div>
             <div>
                 avatar + info
             </div>
-            <div className={s.item}>
-                post
-            </div>
-            <div className={s.item}>
-                post text.
+            <div>
+                <MyPosts />
             </div>
         </div>
     );
