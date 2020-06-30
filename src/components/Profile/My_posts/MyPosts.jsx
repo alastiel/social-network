@@ -13,9 +13,9 @@ const MyPosts = () => {
                 <button>add post</button>
             </div>
             <div className={s.item}>
-                <MyPost />
-                <MyPost />
-                <MyPost />
+                <MyPost message='Hello it is my Network' />
+                <MyPost message='I love Java Script and react' />
+                <MyPost message='It is my first post' />
             </div>
         </div>
     );
