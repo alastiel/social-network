@@ -5,7 +5,7 @@ import s from './ProfileComponent.module.css';
 
 const ProfileComponent = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img className={s.img} src={pageHeader} />
             </div>
