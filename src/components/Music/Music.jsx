@@ -1,14 +1,14 @@
 import React from 'react';
-import s from './News.module.css'
+import s from './Music.module.css'
 
-const News = () => {
+const Music = () => {
     return (
-        <div className={s.hot}>
+        <div className={s.style}>
             <p>
-                News HOT: little pepega run in home!!!
+                MUSE
             </p>
         </div>
     );
 }
 
-export default News;
+export default Music;

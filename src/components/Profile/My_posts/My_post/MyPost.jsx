@@ -7,7 +7,7 @@ const MyPost = (props) => {
         <div>
             <div className={s.item}>
                 <img src='https://ps.w.org/wp-user-avatar/assets/icon-256x256.png?rev=1755722'/>
-                    {props.message}
+                {props.message}
             </div>
         </div>
     );
