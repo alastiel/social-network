@@ -8,3 +8,10 @@
     height: 50px;
     border-radius: 100px;
 }
+.like {
+    padding-left: 30px;
+    padding-bottom: 20px;
+    color: black;
+    opacity: 50%;
+
+}

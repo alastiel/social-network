@@ -1,4 +1,12 @@
-  .item {
+.item {
     color: red;
-  }
-  
+    padding-bottom: 10px;
+}
+.postBlock {
+    padding: 15px;
+}
+.textArea {
+    resize: none;
+    width: 100%;
+    height: 50px;
+}

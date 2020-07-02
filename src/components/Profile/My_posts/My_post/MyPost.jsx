@@ -9,6 +9,9 @@ const MyPost = (props) => {
                 <img src='https://ps.w.org/wp-user-avatar/assets/icon-256x256.png?rev=1755722'/>
                 {props.message}
             </div>
+            <div className={s.like}>
+                Like {props.likesKounts}
+            </div>
         </div>
     );
 
