@@ -1,0 +1,9 @@
+.message {
+    color: black;
+    text-align: left;
+    padding: 0 50px;
+}
+.text {
+    background-color: #fff0f5;
+    padding: 10px;
+}

@@ -1,0 +1,18 @@
+.dialog {
+    color: black;
+    text-align: center;
+}
+.nameDialog {
+    text-decoration: none;
+    color: darkslategray;
+    width: 200px;
+}
+.wrapper {
+    width: 90%;
+    background-color: #fff0f5;
+    margin: 15px 5%;
+    padding: 20px 0;
+}
+.activeLink {
+    color: goldenrod;
+}
