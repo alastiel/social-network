@@ -11,6 +11,7 @@ import Settings from "./components/Settings/Settings";
 
 
 const App = () => {
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -27,6 +28,5 @@ const App = () => {
         </BrowserRouter>
     );
 }
-
 
 export default App;
