@@ -3,11 +3,11 @@ import MyPosts from './My_posts/MyPosts';
 import s from './ProfileComponent.module.css';
 import ProfileInfo from "./My_posts/ProfileInfo/ProfileInfo";
 
-const ProfileComponent = () => {
-    return (
+const ProfileComponent = (props) => {
+        return (
         <div>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts myPostData={props.myPostData}/>
         </div>
     );
 }
