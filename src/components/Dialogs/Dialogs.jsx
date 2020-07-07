@@ -12,7 +12,7 @@ const Dialogs = (props) => {
     let newMessage = React.createRef();
     let addNewMessage = () => {
         let text = newMessage.current.value;
-        alert(text)
+        props.addPost(text);
     }
 
     return (

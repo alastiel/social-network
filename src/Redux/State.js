@@ -1,3 +1,5 @@
+import {rerenderAllUI} from "../render";
+
 let state = {
     profilePage: {
         myPostData: [
@@ -20,7 +22,16 @@ let state = {
             {id: 3, messages: 'Pepega is coming'},
             {id: 4, messages: 'stupid beach'},
         ],
-    },
+    }
+}
+export let addPost = (newMessage) => {
+    let newPost = {
+        id: 5,
+        message: newMessage,
+        likesKounts: 0
+    }
+    state.profilePage.myPostData.push(newPost);
+    rerenderAllUI(state);
 }
 
 export default state;
