@@ -6,6 +6,19 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr  6fr;
-
+}
+.textarea {
+    margin-left: 50px;
+    margin-top: 100px;
+    width: 86%;
+    resize: none;
+    height: 50px;
+}
+.button {
+    margin-left: 50px;
+    margin-bottom: 10px;
+    background-color: orange;
+    border: none;
+    padding: 5px 20px;
 }
 
