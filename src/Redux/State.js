@@ -7,6 +7,7 @@ let state = {
             {id: 2, message: 'I love Java Script and react', likesKounts: 12},
             {id: 3, message: 'It is my first post', likesKounts: 10}
         ],
+        newPostText: ''
     },
     messagePage: {
         dialogs: [
@@ -24,14 +25,22 @@ let state = {
         ],
     }
 }
-export let addPost = (newMessage) => {
+
+
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: newMessage,
+        message: state.profilePage.newPostText,
         likesKounts: 0
     }
     state.profilePage.myPostData.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderAllUI(state);
 }
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderAllUI(state);
+    }
 
 export default state;
