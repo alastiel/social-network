@@ -8,10 +8,10 @@ const ProfileComponent = (props) => {
         <div>
             <ProfileInfo/>
             <MyPosts
+                store={props.store}
                 myPostData={props.profilePage.myPostData}
                 newPostText={props.profilePage.newPostText}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}/>
+            />
         </div>
     );
 }

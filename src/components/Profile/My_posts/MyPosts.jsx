@@ -5,18 +5,15 @@ import MyPost from './My_post/MyPost'
 
 const MyPosts = (props) => {
 
-    // let myPosts = myPostData.map((p) => <MyPost message={p.message} likesKounts={p.likesKounts} id={p.id}/>)
     let myPosts = props.myPostData.map((p) => <MyPost message={p.message} likesKounts={p.likesKounts} id={p.id}/>)
 
     let newPostElement = React.createRef();
-
     let addPost = () => {
-        props.addPost();
-
+        props.store.addPost();
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.store.updateNewPostText(text);
     }
 
     return (
