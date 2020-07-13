@@ -26,11 +26,11 @@ const App = (props) => {
                     {/*<Route path='/Settings' component={Settings}/>*/}
 
                     <Route path='/ProfileComponent' render={() => <ProfileComponent
-                        store={props.store}
+                        dispatch={props.dispatch}
                         profilePage={props.state.profilePage}
                         />}/>
                     <Route path='/Dialogs' render={() => <Dialogs
-                        store={props.store}
+                        dispatch={props.dispatch}
                         state={props.state.messagePage}
                     />}/>
                     <Route path='/News' render={() => <News/>}/>

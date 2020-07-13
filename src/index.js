@@ -7,7 +7,7 @@ let rerenderAllUI = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <App
-                store={store}
+                dispatch={store.dispatch.bind(store)}
                 state={state}
             />
         </React.StrictMode>,
@@ -16,7 +16,7 @@ let rerenderAllUI = (state) => {
 }
 
 store.subscribe(rerenderAllUI);
-rerenderAllUI(store.getState());
+rerenderAllUI(store.dispatch({type: 'GET-STATE'}));
 
 
 

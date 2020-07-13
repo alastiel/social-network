@@ -28,39 +28,73 @@ let store = {
             newMessageText: ''
         }
     },
-    getState() {
-        return this._state;
-    },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesKounts: 0
-        }
-        this._state.profilePage.myPostData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    addMessage() {
-        let newMessage = {
-            id: 5,
-            messages: this._state.messagePage.newMessageText
-        }
-        this._state.messagePage.messages.push(newMessage);
-        this._state.messagePage.newMessageText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewMessageText(newText) {
-        this._state.messagePage.newMessageText = newText;
-        this._callSubscriber(this._state);
-    },
+
+    // getState() {
+    //     return this._state;
+    // },
+    // addPost() {
+    //     let newPost = {
+    //         id: 5,
+    //         message: this._state.profilePage.newPostText,
+    //         likesKounts: 0
+    //     }
+    //     this._state.profilePage.myPostData.push(newPost);
+    //     this._state.profilePage.newPostText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewPostText(newText) {
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
+    // addMessage() {
+    //     let newMessage = {
+    //         id: 5,
+    //         messages: this._state.messagePage.newMessageText
+    //     }
+    //     this._state.messagePage.messages.push(newMessage);
+    //     this._state.messagePage.newMessageText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewMessageText(newText) {
+    //     this._state.messagePage.newMessageText = newText;
+    //     this._callSubscriber(this._state);
+    // },
+
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+
+    dispatch(action) {
+        if (action.type === 'GET-STATE') {
+            return this._state;
+        } else if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesKounts: 0
+            };
+            this._state.profilePage.myPostData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 5,
+                messages: this._state.messagePage.newMessageText,
+            };
+            this._state.messagePage.messages.push(newMessage);
+            this._state.messagePage.newMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.messagePage.newMessageText = action.newText;
+            this._callSubscriber(this._state);
+        }
+    }
+
+
+
 
 }
 

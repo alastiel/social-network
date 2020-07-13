@@ -8,7 +8,7 @@ const ProfileComponent = (props) => {
         <div>
             <ProfileInfo/>
             <MyPosts
-                store={props.store}
+                dispatch={props.dispatch}
                 myPostData={props.profilePage.myPostData}
                 newPostText={props.profilePage.newPostText}
             />
