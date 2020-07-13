@@ -16,7 +16,7 @@ let rerenderAllUI = (state) => {
 }
 
 store.subscribe(rerenderAllUI);
-rerenderAllUI(store.dispatch({type: 'GET-STATE'}));
+rerenderAllUI(store.getState());
 
 
 
