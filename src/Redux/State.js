@@ -1,3 +1,6 @@
+import dialogReduser from "./DialogReduser";
+import profileReduser from "./ProfileReduser";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -28,7 +31,7 @@ let store = {
                 {id: 1, messages: 'Hello'},
                 {id: 2, messages: 'How are yuo'},
                 {id: 3, messages: 'Pepega is coming'},
-                {id: 4, messages: 'stupid beach'},
+                {id: 4, messages: 'Turn around, he is behind you'},
             ],
             newMessageText: ''
         }
@@ -41,30 +44,10 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesKounts: 0
-            };
-            this._state.profilePage.myPostData.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 5,
-                messages: this._state.messagePage.newMessageText,
-            };
-            this._state.messagePage.messages.push(newMessage);
-            this._state.messagePage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_UPDATE_NEW_MESSAGE_TEXT_ACTION_CREATOR) {
-            this._state.messagePage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }
+        this._state.messagePage = dialogReduser(this._state.messagePage, action);
+        this._state.profilePage = profileReduser(this._state.profilePage, action);
+
+        this._callSubscriber(this._state);
     }
 }
 

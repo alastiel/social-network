@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import MyPost from './My_post/MyPost'
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/State";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/ProfileReduser";
 
 const MyPosts = (props) => {
 
     let myPosts = props.myPostData.map((p) => <MyPost message={p.message} likesKounts={p.likesKounts} id={p.id}/>)
+    let newPostText = props.newPostText;
 
     let newPostElement = React.createRef();
     let addPost = () => {
@@ -24,7 +25,7 @@ const MyPosts = (props) => {
                 </div>
                 <div>
                     <textarea onChange={onPostChange}
-                              value={props.newPostText}
+                              value={newPostText}
                               ref={newPostElement}
                               className={s.textArea}
                               cols="100"
