@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbfdf15a-9624-49d2-85d3-3fae2cca300b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/DialogReduser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/DialogReduser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/ProfileReduser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/ProfileReduser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/State.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/State.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Alastiel" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Alastiel" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Redux/redux-store.js" />
+        <option value="$PROJECT_DIR$/src/components/Profile/My_posts/MyPosts.jsx" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/Redux/State.js" />
+        <option value="$PROJECT_DIR$/src/Redux/ProfileReduser.js" />
+        <option value="$PROJECT_DIR$/src/Redux/ReduxStore.js" />
+        <option value="$PROJECT_DIR$/src/Redux/DialogReduser.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eunxytKHzOTJw2s20sWzGaeKw7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowCommit.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbfdf15a-9624-49d2-85d3-3fae2cca300b" name="Default Changelist" comment="" />
+      <created>1595180603306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595180603306</updated>
+      <workItem from="1595180648380" duration="4908000" />
+      <workItem from="1595261013788" duration="3672000" />
+      <workItem from="1595346827084" duration="1293000" />
+      <workItem from="1595527540825" duration="1140000" />
+      <workItem from="1595679432534" duration="3680000" />
+      <workItem from="1595866607216" duration="3311000" />
+    </task>
+    <task id="LOCAL-00001" summary="Story 18: add Reduser and switch">
+      <created>1595186641272</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595186641272</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Story 19: Redux">
+      <created>1595186867204</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595186867205</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Story 19: add Redux">
+      <created>1595266855787</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1595266855787</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Story 18: add Reduser and switch" />
+    <MESSAGE value="Story 19: Redux" />
+    <MESSAGE value="Story 19: add Redux" />
+    <option name="LAST_COMMIT_MESSAGE" value="Story 19: add Redux" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="82" y="90" width="1736" height="838" key="DiffContextDialog" timestamp="1595187208244">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="82" y="90" width="1736" height="838" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595187208244" />
+    <state x="267" y="86" key="MergeDialog" timestamp="1595186918884">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="267" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595186918884" />
+    <state x="848" y="388" width="389" height="264" key="MultipleFileMergeDialog" timestamp="1595186920792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="848" y="388" width="389" height="264" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595186920792" />
+    <state x="81" y="107" width="1736" height="856" key="ShowDiffWithBranchDialog" timestamp="1595186483175">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="81" y="107" width="1736" height="856" key="ShowDiffWithBranchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595186483175" />
+    <state x="846" y="435" key="VCS.EditChangelistDialog" timestamp="1595186725804">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="846" y="435" key="VCS.EditChangelistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595186725804" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1595186879493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595186879493" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595267205967">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595267205967" />
+  </component>
+</project>
