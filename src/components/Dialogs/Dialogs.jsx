@@ -6,20 +6,17 @@ import {addMessageActionCreator, addUpdateNewMessageTextActionCreator} from "../
 
 
 const Dialogs = (props) => {
-
-    let dialogsElement = props.state.dialogs.map((d) => <DialogsItem name={d.name} id={d.id}/>);
-    let messagesElements = props.state.messages.map((m) => <Message text={m.messages} id={m.id}/>);
-    let newMessageText = props.state.newMessageText;
-
-    // let newMessage = React.createRef();
+    let dialogsElement = props.dialogs.map((d) => <DialogsItem name={d.name} id={d.id}/>);
+    let messagesElements = props.messages.map((m) => <Message text={m.messages} id={m.id}/>);
+    let newMessageText = props.newMessageText;
+    
     let addNewMessage = () => {
-        props.dispatch(addMessageActionCreator())
+        props.addMessage();
     }
 
     let onMessageChange = (e) => {
         let text = e.target.value;  //таргетирует место вызова onMessageChange (в textarea) и обращается к нему (позволяет не использовать ref)
-        // let text = newMessage.current.value;
-        props.dispatch(addUpdateNewMessageTextActionCreator(text),{newText: text})
+        props.updateNewMessageText(text)        
     }
 
     return (
@@ -33,7 +30,7 @@ const Dialogs = (props) => {
                     // ref={newMessage}
                     className={s.textarea}
                     value={newMessageText}
-                    onChange={onMessageChange}></textarea>
+                    onChange={onMessageChange}/>
                 <div>
                     <button onClick={addNewMessage} className={s.button}>add post</button>
                 </div>
