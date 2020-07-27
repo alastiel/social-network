@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./Redux/State";
+import store from "./Redux/ReduxStore";
 
 let rerenderAllUI = (state) => {
     ReactDOM.render(
@@ -15,8 +15,12 @@ let rerenderAllUI = (state) => {
     );
 }
 
-store.subscribe(rerenderAllUI);
+
 rerenderAllUI(store.getState());
+store.subscribe(() => {
+    let state = store.getState()
+    rerenderAllUI(state)
+});
 
 
 

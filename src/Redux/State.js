@@ -1,10 +1,6 @@
 import dialogReduser from "./DialogReduser";
 import profileReduser from "./ProfileReduser";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const ADD_UPDATE_NEW_MESSAGE_TEXT_ACTION_CREATOR = 'UPDATE-NEW-MESSAGE-TEXT';
 
 
 let store = {
@@ -51,13 +47,5 @@ let store = {
     }
 }
 
-
-export const addUpdateNewMessageTextActionCreator = (text) =>
-    ({type: ADD_UPDATE_NEW_MESSAGE_TEXT_ACTION_CREATOR, newText:text})
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText:text})
 
 export default store;
