@@ -1,44 +1,14 @@
 import React from "react";
 import s from "./Users.module.css"
+import * as axios from "axios";
+import userPhoto from "../image/default_avatar.png"
 
 const Users = (props) => {
-debugger
     if (props.users.length === 0) {
-        props.setUsers([
-                {
-                    id: 1,
-                    photoURL: 'https://i.imgur.com/j0lXfVH.png',
-                    subscribed: true,
-                    name: 'Nastya',
-                    status: 'I am true',
-                    location: {city: 'Petersburg', country: 'Russia'}
-                },
-                {
-                    id: 2,
-                    photoURL: 'https://avatarfiles.alphacoders.com/756/thumb-75602.jpg',
-                    subscribed: true,
-                    name: 'Katya',
-                    status: 'Welcome in my...',
-                    location: {city: 'Petersburg', country: 'Russia'}
-                },
-                {
-                    id: 3,
-                    photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWDkX5cA_txgiDyD9Ac46P11GMoL6mCRfGLg&usqp=CAU',
-                    subscribed: false,
-                    name: 'Nikita',
-                    status: 'So very HARD!',
-                    location: {city: 'Moscow', country: 'Russia'}
-                },
-                {
-                    id: 4,
-                    photoURL: 'https://avatarfiles.alphacoders.com/783/78344.jpg',
-                    subscribed: false,
-                    name: 'Sten',
-                    status: 'Hello World!',
-                    location: {city: 'Las Vegas', country: 'USA'}
-                },
-            ]
-        )
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items)
+            });
     }
 
     return (
@@ -47,16 +17,16 @@ debugger
                 <div key={u.id}>
                     <span>
                         <div>
-                            <img className={s.image} src={u.photoURL} alt=""/>
+                            <img className={s.image} src={u.photos.small != null ? u.photos.small : userPhoto} alt=""/>
                         </div>
                         <div>
                             {u.subscribed
-                                ? <button onClick={() => {
+                                ? <button className={s.button} onClick={() => {
                                     props.unsubscribe(u.id)
-                                }}>Unfollow</button>
-                                : <button onClick={() => {
+                                }}>UNSUBSCRIBE</button>
+                                : <button className={s.button} onClick={() => {
                                     props.subscribe(u.id)
-                                }}>Follow</button>}
+                                }}>SUBSCRIBE</button>}
                         </div>
                     </span>
                     <span>
@@ -65,8 +35,8 @@ debugger
                             <div>{u.status}</div>
                         </span>
                         <span>
-                            <div>{u.location.country}</div>
-                            <div>{u.location.city}</div>
+                            <div>{"u.location.country"}</div>
+                            <div>{"u.location.city"}</div>
                         </span>
                     </span>
                 </div>)}
