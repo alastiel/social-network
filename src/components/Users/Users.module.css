@@ -8,3 +8,7 @@
     background-color: #fcaa23;
     border: none;
 }
+.pageNumber {
+    font-weight: bold;
+    font-size: x-large;
+}
