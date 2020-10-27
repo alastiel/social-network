@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../image/default_avatar.png";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 let Users = (props) => {
     // Math.ceil - округляет число в большую сторону
@@ -29,10 +30,35 @@ let Users = (props) => {
                         <div>
                             {u.subscribed
                                 ? <button className={s.button} onClick={() => {
-                                    props.unsubscribe(u.id)
+// delete запрос не принимает 2 параметра поэтому withCredentials не нужно ставить третьим
+                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                        withCredentials: true,
+                                        headers: {
+                                            'API-KEY': '5d1464bc-31a7-4aee-8417-5639496e4205'
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.unsubscribe(u.id)
+                                            }
+                                        });
+
                                 }}>UNSUBSCRIBE</button>
+
                                 : <button className={s.button} onClick={() => {
-                                    props.subscribe(u.id)
+                                    //  в пост запросе withCredentials передаётся 3 параметром! поэтому нужно создать 2 параметр {}
+                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            'API-KEY': '5d1464bc-31a7-4aee-8417-5639496e4205'
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.subscribe(u.id)
+                                            }
+                                        });
+
                                 }}>SUBSCRIBE</button>}
                         </div>
                     </span>

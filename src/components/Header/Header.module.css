@@ -6,3 +6,9 @@
 .header img {
     height: 90px;
   }
+.login {
+    float: right;
+}
+.login a {
+    color: white;
+}
