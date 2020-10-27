@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Navigation from './components/Navigation_bar/Navigation';
-import ProfileComponent from './components/Profile/ProfileComponent';
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 const App = (props) => {
@@ -18,7 +18,8 @@ const App = (props) => {
                 <Header/>
                 <Navigation/>
                 <div className='app-wrapper-content'>
-                    <Route path='/ProfileComponent' render={() => <ProfileComponent
+                   {/* в роуте добавлен дополнительный параметр :userID, знак вопроса означает что он не обязательный*/}
+                    <Route path='/Profile/:userId?' render={() => <ProfileContainer
                         store={props.store}
                     />}/>
                     <Route path='/Dialogs' render={() => <DialogsContainer

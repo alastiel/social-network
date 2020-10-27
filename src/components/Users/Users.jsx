@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../image/default_avatar.png";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     // Math.ceil - округляет число в большую сторону
@@ -21,7 +22,9 @@ let Users = (props) => {
             <div key={u.id}>
                     <span>
                         <div>
+                            <NavLink to={'/Profile/' + u.id}>
                             <img className={s.image} src={u.photos.small != null ? u.photos.small : userPhoto} alt=""/>
+                            </NavLink>
                         </div>
                         <div>
                             {u.subscribed

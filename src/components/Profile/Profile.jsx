@@ -1,12 +1,13 @@
 import React from 'react';
-import s from './ProfileComponent.module.css';
+import s from './Profile.module.css';
 import ProfileInfo from "./My_posts/ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./My_posts/MyPostsContainer";
+import Preloader from "../common/preloader/Preloader";
 
-const ProfileComponent = (props) => {
+const Profile = (props) => {
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer
                 store={props.store}
             />
@@ -14,4 +15,4 @@ const ProfileComponent = (props) => {
     );
 }
 
-export default ProfileComponent;
+export default Profile;
