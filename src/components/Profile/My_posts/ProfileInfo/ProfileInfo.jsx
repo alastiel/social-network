@@ -1,10 +1,10 @@
 import React from 'react';
 import s from "./ProfileInfo.module.css";
-import pageHeader from "../../../image/page-header.png";
-import Preloader from "../../../common/preloader/Preloader";
+import pageHeader from "../../../Image/page-header.png";
+import Preloader from "../../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
-    //если нет профиля покажи preloader
+    //если нет профиля покажи Preloader
     if (!props.profile) {
         return <Preloader/>
     }

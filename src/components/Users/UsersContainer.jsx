@@ -5,12 +5,13 @@ import {
     setTotalUsersCount,
     setUsers,
     subscribe,
-    toggleIsFetching,
+    toggleIsFetching, toggleSubscribeProgress,
     unsubscribe
 } from "../../Redux/UsersReducer";
-import * as axios from "axios";
 import Users from "./Users";
-import Preloader from "../common/preloader/Preloader";
+import Preloader from "../common/Preloader/Preloader";
+import {userAPI} from "../../Api/Api";
+
 
 //контейнерная компонента 2 вложенная внутри кк1
 class UsersAPIComponent extends React.Component {
@@ -21,27 +22,23 @@ class UsersAPIComponent extends React.Component {
     }
 
     componentDidMount() {
+
         this.props.toggleIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        })
-            .then(response => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
-            });
+        //getUsers находится в Api и делает запросы на сервер, здесь мы передаём в неё необходимые параметры
+        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+            this.props.toggleIsFetching(false)
+            this.props.setUsers(data.items)
+            this.props.setTotalUsersCount(data.totalCount)
+        });
     }
 
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true)
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true
-        })
-            .then(response => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(response.data.items)
-            });
+        userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+            this.props.toggleIsFetching(false)
+            this.props.setUsers(data.items)
+        });
     }
 
     // метод рендер должен быть в каждой классовой компоненте
@@ -56,6 +53,8 @@ class UsersAPIComponent extends React.Component {
                 unsubscribe={this.props.unsubscribe}
                 subscribe={this.props.subscribe}
                 onPageChanged={this.onPageChanged}
+                toggleSubscribeProgress={this.props.toggleSubscribeProgress}
+                subscribeInProgress={this.props.subscribeInProgress}
             />
         </>
     }
@@ -68,9 +67,14 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        subscribeInProgress: state.usersPage.subscribeInProgress
     }
 }
 
 
-export default connect(mapStateToProps, {subscribe, unsubscribe, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(UsersAPIComponent);
+export default connect(mapStateToProps,
+    {
+        subscribe, unsubscribe, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,
+        toggleSubscribeProgress
+    })(UsersAPIComponent);
