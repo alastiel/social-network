@@ -1,16 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
+    getUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    setUsers,
-    subscribe,
-    toggleIsFetching, toggleSubscribeProgress,
-    unsubscribe
+    subscribeUser,
+    unsubscribeUser
 } from "../../Redux/UsersReducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import {userAPI} from "../../Api/Api";
+
 
 
 //контейнерная компонента 2 вложенная внутри кк1
@@ -19,27 +17,16 @@ class UsersAPIComponent extends React.Component {
     // конструктор можно не писать, если мы не даём ему дополнителных функций кроме super, передача пропсов происходит автоматически в React.Component
     constructor(props) {
         super(props);
-    }
+    };
 
     componentDidMount() {
-
-        this.props.toggleIsFetching(true)
-        //getUsers находится в Api и делает запросы на сервер, здесь мы передаём в неё необходимые параметры
-        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(data.items)
-            this.props.setTotalUsersCount(data.totalCount)
-        });
-    }
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    };
 
     onPageChanged = (pageNumber) => {
-        this.props.toggleIsFetching(true)
         this.props.setCurrentPage(pageNumber);
-        userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(data.items)
-        });
-    }
+        this.props.getUsers(pageNumber, this.props.pageSize);
+    };
 
     // метод рендер должен быть в каждой классовой компоненте
     render() {
@@ -50,11 +37,10 @@ class UsersAPIComponent extends React.Component {
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
                 users={this.props.users}
-                unsubscribe={this.props.unsubscribe}
-                subscribe={this.props.subscribe}
                 onPageChanged={this.onPageChanged}
-                toggleSubscribeProgress={this.props.toggleSubscribeProgress}
                 subscribeInProgress={this.props.subscribeInProgress}
+                subscribeUser={this.props.subscribeUser}
+                unsubscribeUser={this.props.unsubscribeUser}
             />
         </>
     }
@@ -75,6 +61,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-        subscribe, unsubscribe, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,
-        toggleSubscribeProgress
+        setCurrentPage,
+        getUsers, subscribeUser,
+        unsubscribeUser
     })(UsersAPIComponent);

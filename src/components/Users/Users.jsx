@@ -2,7 +2,6 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../Image/default_avatar.png";
 import {NavLink} from "react-router-dom";
-import {userAPI} from "../../Api/Api";
 
 let Users = (props) => {
     // Math.ceil - округляет число в большую сторону
@@ -28,27 +27,13 @@ let Users = (props) => {
                             </NavLink>
                         </div>
                         <div>
-                            {u.subscribed
+                            {u.followed
                                 ? <button disabled={props.subscribeInProgress.some(id => id === u.id)} className={s.button} onClick={() => {
-                                    props.toggleSubscribeProgress(true, u.id);
-                                    // delete запрос не принимает 2 параметра поэтому withCredentials не нужно ставить третьим
-                                    userAPI.unsubscribeUser(u.id).then(data => {
-                                            if (data.resultCode == 0) {
-                                                props.unsubscribe(u.id)
-                                            }
-                                        props.toggleSubscribeProgress(false, u.id);
-                                        });
+                                    props.unsubscribeUser(u.id);
                                 }}>UNSUBSCRIBE</button>
 
                                 : <button disabled={props.subscribeInProgress.some(id => id === u.id)} className={s.button} onClick={() => {
-                                    props.toggleSubscribeProgress(true, u.id);
-                                    //  в пост запросе withCredentials передаётся 3 параметром! поэтому нужно создать 2 параметр {}
-                                    userAPI.subscribeUser(u.id).then(data => {
-                                            if (data.resultCode == 0) {
-                                                props.subscribe(u.id)
-                                            }
-                                        props.toggleSubscribeProgress(false, u.id);
-                                        });
+                                    props.subscribeUser(u.id);
                                 }}>SUBSCRIBE</button>}
                         </div>
                     </span>

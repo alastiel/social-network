@@ -2,6 +2,10 @@ import React from 'react';
 import {addMessageActionCreator, addUpdateNewMessageTextActionCreator} from "../../Redux/DialogReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
+
+
+let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
 // две следующие функции настраивают коннект, передают в него необходимые данные и колбэки
 let mapStateToProps = (state) => {
@@ -21,7 +25,7 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 // при отрисовке Dialogs, connect передаёт в её props данные из этих функций: mapStateToProp, mapDispatchToProps 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
 
 export default DialogsContainer;

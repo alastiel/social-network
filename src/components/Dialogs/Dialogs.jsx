@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialog.module.css'
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Messages/Message";
+import {Redirect} from "react-router";
 
 
 
