@@ -1,0 +1,10 @@
+.status {
+    border-color: white;
+    background-color: transparent;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.activeStatus {
+    font-size: 25px;
+    margin-bottom: 30px;
+}

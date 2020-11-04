@@ -8,6 +8,8 @@ import {
 } from "../../Redux/UsersReducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -57,11 +59,7 @@ const mapStateToProps = (state) => {
         subscribeInProgress: state.usersPage.subscribeInProgress
     }
 }
-
-
-export default connect(mapStateToProps,
-    {
-        setCurrentPage,
-        getUsers, subscribeUser,
-        unsubscribeUser
-    })(UsersAPIComponent);
+export default compose(
+    connect(mapStateToProps, {setCurrentPage, getUsers, subscribeUser, unsubscribeUser}),
+    withAuthRedirect
+)(UsersAPIComponent)

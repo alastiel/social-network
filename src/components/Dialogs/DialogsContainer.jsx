@@ -3,9 +3,11 @@ import {addMessageActionCreator, addUpdateNewMessageTextActionCreator} from "../
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
+import {compose} from "redux";
 
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+
 
 // две следующие функции настраивают коннект, передают в него необходимые данные и колбэки
 let mapStateToProps = (state) => {
@@ -23,9 +25,8 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-
-// при отрисовке Dialogs, connect передаёт в её props данные из этих функций: mapStateToProp, mapDispatchToProps 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
-
-
-export default DialogsContainer;
+//редирект перенаправляет незалогиненых пользователей на страничку логина
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs)

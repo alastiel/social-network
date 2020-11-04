@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 import s from "./ProfileInfo.module.css";
 import pageHeader from "../../../Image/page-header.png";
 import Preloader from "../../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     //если нет профиля покажи Preloader
@@ -10,12 +11,12 @@ const ProfileInfo = (props) => {
     }
 
     let work = '';
-        if (props.profile.lookingForAJob == true) {
-            work = 'looking for work 0_0'
-        } else {
-            work = 'there is work'
-        };
-
+    if (props.profile.lookingForAJob == true) {
+        work = 'looking for work 0_0'
+    } else {
+        work = 'there is work'
+    }
+    ;
 
 
     return (
@@ -24,9 +25,14 @@ const ProfileInfo = (props) => {
                 <img className={s.img} src={pageHeader}/>
             </div>
             <div className={s.profileInfo}>
-                <h2>
-                    {props.profile.fullName}
-                </h2>
+                <div>
+                    <h2>
+                        {props.profile.fullName}
+                    </h2>
+                    <div>
+                        <ProfileStatus status={"my status"}/>
+                    </div>
+                </div>
                 <div>
                     About me: {props.profile.aboutMe}
                 </div>
