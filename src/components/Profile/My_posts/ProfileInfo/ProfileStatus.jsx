@@ -3,7 +3,8 @@ import s from "./ProfileStatus.module.css";
 
 class ProfileStatus extends React.Component {
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
     activateEditMode = () => {
         // через setState мы перезаписываем стейт с новыми данными, если этого не делать, то UI не будет реагировать
@@ -15,6 +16,12 @@ class ProfileStatus extends React.Component {
     deactivateEditMode = () => {
         this.setState({
             editMode: false
+        });
+        this.props.updateStatus(this.state.status);
+    }
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
         })
     }
 
@@ -22,12 +29,13 @@ class ProfileStatus extends React.Component {
         return <div>
             {!this.state.editMode &&
                 <div className={s.activeStatus}>
-                    <span onClick={this.activateEditMode} > {this.props.status}</span>
+                    <span onClick={this.activateEditMode} > {this.props.status || 'no status'}</span>
                 </div>
             }
             {this.state.editMode &&
                 <div>
-                    <input autoFocus={true} onBlur={this.deactivateEditMode} className={s.status} value={this.props.status}/>
+                    <input  onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} className={s.status}
+                            value={this.state.status}/>
                 </div>
             }
         </div>

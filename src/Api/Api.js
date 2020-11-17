@@ -16,12 +16,6 @@ export const userAPI = {
                 return response.data
             });
     },
-    getProfile(userId) {
-        return instance.get(`Profile/${userId}`)
-            .then(response => {
-                return response.data
-            });
-    },
     subscribeUser(id) {
         return instance.post(`follow/${id}`)
             .then(response => {
@@ -35,6 +29,24 @@ export const userAPI = {
             });
     },
 }
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get(`Profile/${userId}`)
+            .then(response => {
+                return response.data
+            });
+    },
+    getStatus(userId) {
+        return instance.get(`Profile/status/${userId}`);
+    },
+    updateStatus(status) {
+        return instance.put(`Profile/status`, {status: status})
+            .then(response => {
+                return response.data
+            });
+    }
+}
+
 export const authAPI = {
     authMe() {
         return instance.get(`auth/me`)
