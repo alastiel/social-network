@@ -1,10 +1,12 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import MyPost from './My_post/MyPost'
+import {reduxForm} from "redux-form";
 
 const MyPosts = (props) => {
 
-    let myPosts = props.myPostData.map((p) => <MyPost key={p.id} message={p.message} likesKounts={p.likesKounts} id={p.id}/>)
+    let myPosts = props.myPostData.map((p) => <MyPost key={p.id} message={p.message} likesKounts={p.likesKounts}
+                                                      id={p.id}/>)
     let newPostText = props.newPostText;
 
     let newPostElement = React.createRef();
