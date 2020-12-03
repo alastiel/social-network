@@ -12,7 +12,7 @@ let store = {
                 {id: 2, message: 'I love Java Script and react', likesKounts: 12},
                 {id: 3, message: 'It is my first post', likesKounts: 10}
             ],
-            newPostText: ''
+
         },
         messagePage: {
             dialogs: [

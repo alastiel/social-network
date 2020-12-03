@@ -5,10 +5,6 @@ import {connect} from "react-redux";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {compose} from "redux";
 
-
-
-
-
 // две следующие функции настраивают коннект, передают в него необходимые данные и колбэки
 let mapStateToProps = (state) => {
     return{
