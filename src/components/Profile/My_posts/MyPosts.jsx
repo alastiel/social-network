@@ -9,7 +9,6 @@ const MyPosts = (props) => {
                                                       id={p.id}/>)
 
     let addNewPost = (values) => {
-        debugger
         props.addPost(values.newPostText)
     }
 
@@ -42,6 +41,8 @@ const AddPostForm = (props) => {
 const AddPostReduxForm = reduxForm({
     form: 'profileAddPostForm' // a unique name for this form
 })(AddPostForm);
+
+
 
 
 export default MyPosts;
