@@ -1,28 +1,8 @@
 import React from 'react';
 import s from './Login.module.css'
-import {Field, reduxForm} from "redux-form";
-
-const LoginForm = (props) => {
-    return <div>
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field placeholder={'Login'} component={'input'} name={'Login'}/>
-            </div>
-            <div>
-                <Field placeholder={'Password'} component={'input'} name={'Password'}/>
-            </div>
-            <div>
-                <Field type={'checkbox'} component={'input'} name={'rememberMe'}/> remember me
-            </div>
-            <div>
-                <button>login</button>
-            </div>
-        </form>
-    </div>
-}
-const LoginReduxForm = reduxForm({
-    form: 'login' // a unique name for this form
-})(LoginForm);
+import {Form, Field} from 'react-final-form'
+import {requiredField} from "../../Utils/Validators/Validators";
+import {Input} from "../common/FormControls/FormControls";
 
 const Login = (props) => {
     const onSubmit = (formData) => {
@@ -30,8 +10,31 @@ const Login = (props) => {
     }
     return <div className={s.loginRegion}>
         <h3>LOGIN</h3>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginForm onSubmit={onSubmit}/>
     </div>
 }
+
+const LoginForm = (props) => {
+    return <Form onSubmit={props.onSubmit}>
+        {({handleSubmit}) =>(
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <Field validate={requiredField} placeholder={'Login'} component={Input} name={'Login'}/>
+                </div>
+                <div>
+                    <Field validate={requiredField} placeholder={'Password'} component={Input} name={'Password'}/>
+                </div>
+                <div>
+                    <Field type={'checkbox'} component={Input} name={'rememberMe'}/> remember me
+                </div>
+                <div>
+                    <button>login</button>
+                </div>
+            </form>
+        )}
+    </Form>
+}
+
+
 
 export default Login;

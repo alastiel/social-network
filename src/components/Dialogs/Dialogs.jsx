@@ -3,6 +3,9 @@ import s from './Dialog.module.css'
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Messages/Message";
 import {Form, Field} from 'react-final-form'
+import {requiredField} from "../../Utils/Validators/Validators";
+import {Textarea} from "../common/FormControls/FormControls";
+
 
 const Dialogs = (props) => {
     let dialogsElement = props.messagePage.dialogs.map((d) => <DialogsItem key={d.id} name={d.name} id={d.id}/>);
@@ -30,7 +33,7 @@ const AddMessageForm = (props) => {
             onSubmit={props.onSubmit}>
              {({handleSubmit, pristine, form, submitting, values}) => (
                 <form onSubmit={handleSubmit}>
-                    <Field  component={'textarea'} name={'newMessageBody'} placeholder={'enter you message'}/>
+                    <Field maxLength={3000} validate={requiredField} component={Textarea} name={'newMessageBody'} placeholder={'enter you message'}/>
                     <div>
                         <button className={s.button}>add post</button>
                     </div>
