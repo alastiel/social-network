@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Login.module.css'
+import fc from '../common/FormControls/FormControls.module.css'
 import {Form, Field} from 'react-final-form'
 import {requiredField} from "../../Utils/Validators/Validators";
 import {Input} from "../common/FormControls/FormControls";
@@ -34,6 +35,9 @@ const LoginForm = (props) => {
                     <Field type={'checkbox'} component={Input} name={'rememberMe'}/> remember me
                 </div>
                 <div>
+                    <div className={fc.formSummeryError}>
+                        {props.error}
+                    </div>
                     <button>login</button>
                 </div>
             </form>
