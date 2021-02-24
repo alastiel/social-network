@@ -1,6 +1,7 @@
 import {authAPI} from "../Api/Api";
 import React from "react";
-import {stopSubmit} from "redux-form";
+import { FORM_ERROR } from 'final-form'
+import {toggleIsFetching} from "./UsersReducer";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -9,6 +10,7 @@ let initialState = {
     login: null,
     email: null,
     isAuth: false,
+    isFetching: false,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -26,15 +28,14 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload:{id, email, login, isAuth}})
 
-export const getAuthUserData = () => {
-    return (dispatch) => {
+export const getAuthUserData = () => (dispatch) => {
         authAPI.authMe().then(data => {
             if (data.resultCode === 0) {
                 let {id, email, login,} = data.data;
                 dispatch(setAuthUserData(id, email, login, true));
             }
         });
-    }
+        return "type"
 }
 export const login = (email, password, rememberMe) => {
     return (dispatch) => {
@@ -42,10 +43,10 @@ export const login = (email, password, rememberMe) => {
             .then(data => {
             if (data.resultCode === 0) {
                 dispatch(getAuthUserData())
-            } //else {
-                //let action = stopSubmit("login", {_error:"error email"})
-                //dispatch(action);
-            //}
+            } else {
+                dispatch(toggleIsFetching(false));
+                return {[FORM_ERROR]: data.messages[0]}
+            }
         });
     }
 }

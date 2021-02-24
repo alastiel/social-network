@@ -62,7 +62,10 @@ export const authAPI = {
     },
     logout() {
         return instance.delete(`auth/login`);
-    }
+    },
+    authorization (email, password, rememberMe, captcha = null) {
+        return instance.post(`auth/login`, {email, password, rememberMe, captcha})
+    },
 }
 
 

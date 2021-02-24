@@ -21,9 +21,54 @@ const Login = (props) => {
     </div>
 }
 
+// const LoginForm = (props) => {
+//     return (
+//         <Form onSubmit={values => props.onSubmit(values.login, values.password, values.rememberMe, values.captcha)}>
+//             {({handleSubmit, submitError}) => (
+//             <form onSubmit={handleSubmit}>
+//                 <div>
+//                     <Field validate={requiredField} name={'login'}>
+//                         {(props) => {
+//                             return (
+//                                 <div>
+//                                     <input placeholder="Login" type="text" {...props.input} />
+//                                     { props.meta.error && props.meta.touched && <span> {props.meta.error} </span>}
+//                                 </div>
+//                             )}
+//                         }
+//                     </Field>
+//                 </div>
+//                 <div>
+//                     <Field validate={composeValidators(requiredField, minLength(6))} name={'password'}>
+//                         {(props) => {
+//                             return(
+//                                 <div>
+//                                     <input placeholder="Password" type="password" {...props.input} />
+//                                     { props.meta.error && props.meta.touched && <span> {props.meta.error} </span>}
+//                                 </div>
+//                             )}
+//                         }
+//                     </Field>
+//                 </div>
+//                 <div>
+//                     <Field name="rememberMe" >
+//                         {(props) => (<input type="checkbox" {...props.input} />)}
+//                     </Field>
+//                 </div>
+//                 <div>
+//                     {submitError && <div className={fc.formSummeryError}> {submitError} </div>}
+//                     <button>login</button>
+//                 </div>
+//             </form>
+//         )}
+//         </Form>
+//     )
+// }
+
 const LoginForm = (props) => {
-    return <Form onSubmit={props.onSubmit}>
-        {({handleSubmit}) =>(
+    return (
+        <Form onSubmit={props.onSubmit}>
+        {({handleSubmit, submitError, values}) =>(
             <form onSubmit={handleSubmit}>
                 <div>
                     <Field validate={requiredField} placeholder={'Email'} component={Input} name={'email'}/>
@@ -35,16 +80,15 @@ const LoginForm = (props) => {
                     <Field type={'checkbox'} component={Input} name={'rememberMe'}/> remember me
                 </div>
                 <div>
-                    <div className={fc.formSummeryError}>
-                        {props.error}
-                    </div>
+                    {submitError && <div className={fc.formSummeryError}>
+                        {props.onSubmit.values}
+                    </div>}
                     <button>login</button>
                 </div>
             </form>
         )}
-    </Form>
+    </Form>)
 }
-
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
