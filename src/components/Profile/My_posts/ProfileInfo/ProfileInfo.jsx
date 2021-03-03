@@ -3,6 +3,7 @@ import s from "./ProfileInfo.module.css";
 import pageHeader from "../../../Image/page-header.png";
 import Preloader from "../../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     //если нет профиля покажи Preloader
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
                     </h2>
                     <div>
 
-                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                     </div>
                 </div>
                 <div>

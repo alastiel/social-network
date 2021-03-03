@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    getUsers,
+    requestUsers,
     setCurrentPage,
     subscribeUser,
     unsubscribeUser
@@ -10,6 +10,14 @@ import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {compose} from "redux";
+import {
+    getUsers,
+    getCurrentPage,
+    getIsFetching,
+    getPageSize,
+    getSubscribeInProgress,
+    getTotalUsersCount
+} from "../../Redux/UsersSelectors";
 
 
 
@@ -26,7 +34,6 @@ class UsersAPIComponent extends React.Component {
     };
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
         this.props.getUsers(pageNumber, this.props.pageSize);
     };
 
@@ -49,17 +56,28 @@ class UsersAPIComponent extends React.Component {
 }
 
 //контейнерная компонента 1
+// const mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         subscribeInProgress: state.usersPage.subscribeInProgress
+//     }
+// }
 const mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        subscribeInProgress: state.usersPage.subscribeInProgress
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        subscribeInProgress: getSubscribeInProgress(state)
     }
 }
+
 export default compose(
-    connect(mapStateToProps, {setCurrentPage, getUsers, subscribeUser, unsubscribeUser}),
+    connect(mapStateToProps, {setCurrentPage, getUsers: requestUsers, subscribeUser, unsubscribeUser}),
     withAuthRedirect
 )(UsersAPIComponent)
